@@ -1,0 +1,29 @@
+﻿<Window x:Class="Lucid_Dream.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="586" Width="1022" Unloaded="Window_Unloaded" Loaded="Window_Loaded" Background="{x:Null}" FontFamily="Jua" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True">
+    <Grid>
+        <Rectangle Fill="#FF2B2B2B" HorizontalAlignment="Center" Height="570" VerticalAlignment="Center" Width="1022" RadiusY="15" RadiusX="15"/>
+        <Grid x:Name="DragMove_Grid" HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="1022" Background="Transparent" MouseLeftButtonDown="DragMove_Grid_MouseLeftButtonDown">
+            <Label x:Name="Close_Button" Content="X" HorizontalAlignment="Left" Margin="986.903,10,0,0" VerticalAlignment="Top" FontFamily="Jua" Foreground="#FFD8D8D8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Opacity="0.1" MouseEnter="Close_Button_MouseEnter" MouseLeave="Close_Button_MouseLeave" MouseLeftButtonDown="Close_Button_MouseLeftButtonDown"/>
+            <Label x:Name="Mini_Button" Content="ㅡ" HorizontalAlignment="Left" Margin="961.963,10,0,0" VerticalAlignment="Top" FontFamily="Jua" Foreground="#FFD8D8D8" HorizontalContentAlignment="Center" FontSize="18" Opacity="0.1" VerticalContentAlignment="Center" Height="36.303" MouseEnter="Mini_Button_MouseEnter" MouseLeave="Mini_Button_MouseLeave" MouseLeftButtonDown="Mini_Button_MouseLeftButtonDown"/>
+        </Grid>
+        <TextBox x:Name="Timer_TextBox" HorizontalAlignment="Left" Margin="162,207,0,0" Text="300" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontSize="22" BorderBrush="#FFD8D8D8" Background="#FF2B2B2B" Foreground="#FFD8D8D8" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="42" BorderThickness="3" PreviewTextInput="Timer_TextBox_PreviewTextInput" GotFocus="Timer_TextBox_GotFocus">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="11"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Label Content="초 동안 사용하지 않으면 잠그기" HorizontalAlignment="Left" Height="56" Margin="361,203,0,0" VerticalAlignment="Top" Width="497" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Foreground="#FFD8D8D8" FontSize="20"/>
+        <Label x:Name="Save_Button" Content="저장" HorizontalAlignment="Left" Margin="838,495,0,0" VerticalAlignment="Top" Foreground="#FFD8D8D8" FontFamily="Jua" FontSize="36" Opacity="0.2" MouseLeftButtonDown="Save_Button_MouseLeftButtonDown" MouseEnter="Save_Button_MouseEnter" MouseLeave="Save_Button_MouseLeave" Focusable="True" Height="49" Width="71" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="Guid_Label" Content="" HorizontalAlignment="Center" Height="106" Margin="0,68,0,0" VerticalAlignment="Top" Width="904" FontSize="36" FontFamily="Jua" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFD8D8D8"/>
+        <Label x:Name="Cancel_Button" Content="닫기" HorizontalAlignment="Left" Margin="924,495,0,0" VerticalAlignment="Top" Foreground="#FFD8D8D8" FontFamily="Jua" FontSize="36" Opacity="0.2" MouseLeftButtonDown="Cancel_Button_MouseLeftButtonDown" MouseEnter="Cancel_Button_MouseEnter" MouseLeave="Cancel_Button_MouseLeave" Focusable="True" Width="71" Height="49" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <PasswordBox x:Name="Password_TextBox" Style="{StaticResource RoundedPasswordBox}" HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="516" FontSize="22" VerticalContentAlignment="Center" Padding="15 0 15 0" BorderThickness="3" FontFamily="Arial Black" Foreground="#FFD8D8D8" Background="{x:Null}" CaretBrush="#FFD8D8D8" Margin="162,305,0,0" GotFocus="Password_TextBox_GotFocus"/>
+        <Label x:Name="ChangePassword_Button" Content="비밀번호 바꾸기" HorizontalAlignment="Left" Margin="700,307,0,0" VerticalAlignment="Top" Foreground="#FFD8D8D8" FontFamily="Jua" FontSize="25" Opacity="0.2" MouseEnter="ChangePassword_Button_MouseEnter" MouseLeave="ChangePassword_Button_MouseLeave" MouseLeftButtonDown="ChangePassword_Button_MouseLeftButtonDown"/>
+        <CheckBox x:Name="Animation_CheckBox" Content="잠금화면 파티클 애니메이션" Background="White" Foreground="#FFA8A8A8" FontFamily="Jua" Width="Auto" FontSize="24" Margin="162,400,583,146" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+    </Grid>
+</Window>
