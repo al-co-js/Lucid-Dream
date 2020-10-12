@@ -195,11 +195,10 @@ namespace Lucid_Dream
             td.RegistrationInfo.Description = "Lucid Dream";
 
             td.Principal.UserId = $"{Environment.UserDomainName}\\{Environment.UserName}";
-            td.Principal.LogonType = TaskLogonType.InteractiveToken;
             td.Principal.RunLevel = TaskRunLevel.Highest;
 
-            var lt = new LogonTrigger();
-            td.Triggers.Add(lt);
+            var bt = new BootTrigger();
+            td.Triggers.Add(bt);
 
             td.Actions.Add(new ExecAction(Process.GetCurrentProcess().MainModule.FileName));
             ts.RootFolder.RegisterTaskDefinition("Lucid Dream", td);
