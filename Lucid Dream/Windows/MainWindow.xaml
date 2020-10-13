@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="586" Width="1022" Unloaded="Window_Unloaded" Loaded="Window_Loaded" Background="{x:Null}" FontFamily="Jua" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True">
+        Title="Lucid Dream" Height="586" Width="1022" Unloaded="Window_Unloaded" Loaded="Window_Loaded" Background="{x:Null}" FontFamily="Jua" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True">
     <Grid>
         <Rectangle Fill="#FF2B2B2B" HorizontalAlignment="Center" Height="570" VerticalAlignment="Center" Width="1022" RadiusY="15" RadiusX="15"/>
         <Grid x:Name="DragMove_Grid" HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="1022" Background="Transparent" MouseLeftButtonDown="DragMove_Grid_MouseLeftButtonDown">

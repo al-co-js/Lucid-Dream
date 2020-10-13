@@ -19,7 +19,7 @@ namespace Lucid_Dream.Classes
         [DllImport("user32.dll", SetLastError = true)]
         public static extern void LockWorkStation();
 
-        [DllImport("gdi32.dll", EntryPoint = "DeleteObject")]
+        [DllImport("gdi32.dll")]
         public static extern void DeleteObject([In] IntPtr hObject);
     }
 }

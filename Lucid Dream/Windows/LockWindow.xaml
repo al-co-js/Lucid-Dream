@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Class="Lucid_Dream.LockWindow"
     mc:Ignorable="d"
-    x:Name="Window" Title="LockWindow" Height="1080" Width="1920" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" Topmost="True" ScrollViewer.VerticalScrollBarVisibility="Disabled" UseLayoutRounding="False" WindowStyle="None" Background="#FF2B2B2B" Foreground="#FFD8D8D8" AllowsTransparency="True" Closing="Window_Closing" HorizontalContentAlignment="Left" VerticalContentAlignment="Top">
+    x:Name="Window" Title="Lucid Dream" Height="1080" Width="1920" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" Topmost="True" ScrollViewer.VerticalScrollBarVisibility="Disabled" UseLayoutRounding="False" WindowStyle="None" Background="#FF2B2B2B" Foreground="#FFD8D8D8" AllowsTransparency="True" Closing="Window_Closing" HorizontalContentAlignment="Left" VerticalContentAlignment="Top">
     <Grid>
         <Ellipse x:Name="Profile_Image_Ellipse" HorizontalAlignment="Left" Width="372" Height="372" VerticalAlignment="Top" StrokeThickness="3" Stroke="#FFD8D8D8" Margin="774,345,0,0">
             <Ellipse.Fill>

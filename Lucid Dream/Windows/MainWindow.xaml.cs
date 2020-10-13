@@ -22,13 +22,13 @@ using MenuItem = System.Windows.Forms.MenuItem;
 using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 using Window = System.Windows.Window;
 using System.Threading.Tasks;
-using Microsoft.Win32.TaskScheduler;
 using DesktopToast;
 using System.Reflection;
 using System.ComponentModel;
 using NotificationsExtensions.Toasts;
 using NotificationsExtensions;
 using System.Collections.Generic;
+using Microsoft.Win32;
 
 namespace Lucid_Dream
 {
@@ -190,18 +190,9 @@ namespace Lucid_Dream
                 return;
             }
 #if !DEBUG
-            var ts = new TaskService();
-            var td = ts.NewTask();
-            td.RegistrationInfo.Description = "Lucid Dream";
-
-            td.Principal.UserId = $"{Environment.UserDomainName}\\{Environment.UserName}";
-            td.Principal.RunLevel = TaskRunLevel.Highest;
-
-            var bt = new BootTrigger();
-            td.Triggers.Add(bt);
-
-            td.Actions.Add(new ExecAction(Process.GetCurrentProcess().MainModule.FileName));
-            ts.RootFolder.RegisterTaskDefinition("Lucid Dream", td);
+            var runKey = @"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run";
+            using var strUpKey = Registry.LocalMachine.OpenSubKey(runKey, true);
+            strUpKey.SetValue("Lucid Dream", Process.GetCurrentProcess().MainModule.FileName);
 #endif
             Picture.Delete();
             ThreadPool.QueueUserWorkItem((x) =>
@@ -282,11 +273,6 @@ namespace Lucid_Dream
                         new AdaptiveText { Text = "Lucy" }, // Title
 						new AdaptiveText { Text = "이전에 로그인을 시도했던 사람이 있어요." }, // Body
 					}
-                    //AppLogoOverride = new ToastGenericAppLogo
-                    //{
-                    //    Source = string.Format("file:///{0}", Path.GetFullPath("Resources/toast128.png")),
-                    //    AlternateText = "Logo"
-                    //}
                 }
             };
             var toastContent = new ToastContent

@@ -39,6 +39,7 @@ namespace Lucid_Dream
         private Ellipse ellipse;
 
         public static bool capture = false;
+        private readonly object lo = new object();
 
         public LockWindow()
         {
@@ -63,13 +64,22 @@ namespace Lucid_Dream
                             MakeParticle(Brushes.DeepPink, random.Next(0, 1920), 1080);
                             MakeParticle(Brushes.Purple, random.Next(0, 1920), 1080);
                         });
-                        if (time > 1200)
+                        if (time < 0)
+                        {
+                            time = 61;
+                        }
+                        if (time > 60)
                         {
                             for (var i = 0; i < 3; i++)
                             {
                                 Dispatcher.Invoke(() => canvas.Children.Remove(canvas.Children[i]));
                             }
                         }
+                    }
+                    else
+                    {
+                        time--;
+                        Thread.Sleep(5000);
                     }
                     Thread.Sleep(500);
                 }
@@ -80,7 +90,7 @@ namespace Lucid_Dream
         {
             var random = new Random();
             ellipse = new Ellipse();
-            ellipse.Width = ellipse.Height = random.NextDouble() * 10d;
+            ellipse.Width = ellipse.Height = random.NextDouble() * 6d + 5d;
             ellipse.Fill = brush;
             Canvas.SetLeft(ellipse, x);
             Canvas.SetTop(ellipse, y);
@@ -195,7 +205,7 @@ namespace Lucid_Dream
                         Battery_Percentage.Content = $"{battery}%";
                         Battery_Gage.Width = battery * 0.73;
                     });
-                    Thread.Sleep(1000);
+                    Thread.Sleep(60000);
                 }
             });
             Password_TextBox.Focus();
@@ -229,15 +239,18 @@ namespace Lucid_Dream
                 {
                     ThreadPool.QueueUserWorkItem((x) =>
                     {
-                        try
+                        lock (lo)
                         {
-                            using var videoCapture = new VideoCapture(0);
-                            using var mat = new Mat();
-                            videoCapture.Read(mat);
-                            mat.SaveImage($@"C:\Lucid Dream\{DateTime.Now:yyyy-MM-dd-hh-mm-ss}.png");
-                            capture = true;
+                            try
+                            {
+                                using var videoCapture = new VideoCapture(0);
+                                using var mat = new Mat();
+                                videoCapture.Read(mat);
+                                mat.SaveImage($@"C:\Lucid Dream\{DateTime.Now:yyyy-MM-dd-hh-mm-ss}.png");
+                                capture = true;
+                            }
+                            catch { }
                         }
-                        catch { }
                     });
                 }
                 e.Handled = true;
